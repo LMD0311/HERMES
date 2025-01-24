@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Hermes">
+  <meta name="keywords" content="Driving World Model">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hermes</title>
+  <link rel="icon" media="(prefers-color-scheme:dark)" href="./static/images/logo.jpg" type="image/jpg" />
+  <link rel="icon" media="(prefers-color-scheme:light)" href="./static/images/logo.jpg" type="image/jpg" />
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+
+</head>
+<body>
+
+
+<script src="./static/js/vanilla-back-to-top.min.js"></script>
+      <script>addBackToTop({
+          backgroundColor: '#fff',
+          innerHTML: 'Back to Top',
+          textColor: '#333'
+        })
+      </script>
+      <style>
+          #back-to-top {
+            border: 1px solid #ccc;
+            border-radius: 0;
+            font-size: 15px;
+            width: 100px;
+            text-align: center;
+            line-height: 30px;
+            height: 30px;
+          }
+      </style>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+            <img src="static/images/logo.jpg" alt="MY ALT TEXT" style="width: 20%;"/>
+          <h1 class="title is-3 publication-title">HERMES: A Unified Self-Driving World Model for Simultaneous 3D Scene Understanding and Generation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://lmd0311.github.io/" target="_blank" rel="noopener noreferrer">Xin Zhou</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://dk-liang.github.io/" target="_blank" rel="noopener noreferrer">Dingkang Liang</a><sup>1*†</sup>,</span>
+              <span class="author-block">
+                <a>Sifan Tu</a><sup>1</sup>,</span>
+            <!-- <span class="author-block"> -->
+              <!-- <a href="https://github.com/SamorsetTuska" target="_blank" rel="noopener noreferrer">Sifan Tu</a><sup>1</sup>,</span> -->
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=PVMQa-IAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Xiwu Chen</a><sup>3</sup>,</span> 
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=gdP9StQAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Yikang Ding</a><sup>2†</sup>,</span>
+            <span class="author-block">
+              <!-- <a href="https://scholar.google.com/citations?user=H_nRYBQAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Dingyuan Zhang</a><sup>1</sup>,</span>  -->
+            <!-- <span class="author-block"> -->
+              <!-- <a href="https://scholar.google.com/citations?user=4uE10I0AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Feiyang Tan</a><sup>3</sup>,</span> -->
+              <!-- <span class="author-block">
+                <a>Xiwu Chen</a><sup>3</sup>,</span> 
+              <span class="author-block">
+                <a>Yikang Ding</a><sup>2†</sup>,</span>
+              <span class="author-block"> -->
+                <a>Dingyuan Zhang</a><sup>1</sup>,</span> 
+              <span class="author-block">
+                <a>Feiyang Tan</a><sup>3</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=4uE10I0AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Hengshuang Zhao</a><sup>4</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=UeltiQ4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Xiang Bai</a><sup>1</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Huazhong University of Science & Technology,</span>
+            <span class="author-block"><sup>2</sup>MEGVII Technology,</span> <br>
+            <span class="author-block"><sup>3</sup>Mach Drive,</span>
+            <span class="author-block"><sup>4</sup>The University of Hong Kong</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>*</sup> Equal contribution.</span>
+            <span class="author-block"><sup>†</sup> Project leader</span>
+
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/"
+                   class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener noreferrer">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/LMD0311/HERMES"
+                   class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener noreferrer">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Driving World Models (DWMs) have become essential for autonomous driving by enabling future scene prediction. However, existing DWMs are limited to scene generation and fail to incorporate scene understanding, which involves interpreting and reasoning about the driving environment. In this paper, we present a unified Driving World Model named <b>HERMES</b><sup>1</sup>. Through a unified framework, we seamlessly integrate scene understanding and future scene evolution (generation) in open-driving scenarios. Specifically, <b>HERMES</b> leverages a Bird’s-Eye View (BEV) representation to consolidate multi-view spatial information while preserving geometric relationships and interactions. Additionally, we introduce world queries, which incorporate world knowledge into BEV features via causal attention in the Large Language Model (LLM), enabling contextual enrichment for both understanding and generation tasks. We conduct comprehensive studies on nuScenes and OmniDrive-nuScenes datasets to validate the effectiveness of our method. <b>HERMES</b> achieves state-of-the-art performance, reducing generation error by 32.4% and improving understanding metrics such as CIDEr by 8.0%.        </div>
+      
+            <div class="item">
+              <img src="./static/images/intro.png" alt="MY ALT TEXT"/>    </div>
+              <small><p>
+                <sup>1</sup> In Greek mythology, <a href="https://en.wikipedia.org/wiki/Hermes" target="_blank" rel="noopener noreferrer">Hermes</a> serves as the messenger of the gods. Similarly, this paper proposes a simple yet effective framework that unifies understanding and generation as a driving world model, facilitating knowledge transfer across tasks. The logo inspired by Hermes' shoes.
+                
+              </p></small>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Pipeline</h2>
+      <div class="item">
+        <img src="static/images/pipeline.jpg" alt="MY ALT TEXT"/>
+       </h2>
+     </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+
+      <div class="item"></div>
+      <h3 class="title is-4">Demo</h3>
+      <div class="content has-text-justified">
+        <div class="column is-center has-text-centered">
+        <video id="compare-video1" autoplay loop controls="" preload="" playsinline="" width="100%">
+          <source src="./static/images/video1.mp4" type="video/mp4">
+        </video>
+        <p>Example 1</p>
+        <video id="compare-video1" autoplay loop controls="" preload="" playsinline="" width="100%">
+          <source src="./static/images/video2.mp4" type="video/mp4">
+        </video>
+      <p>Example 2</p>
+
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Main Results</h2>
+        <div class="item">
+        <div class="content has-text-justified">
+        </div>
+        <div class="column is-center has-text-centered">
+            <img src="./static/images/main_results.png"
+                 class="interpolation-image"
+                 />
+        </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+      @article{zhou2025hermes,
+        title={HERMES: A Unified Self-Driving World Model for Simultaneous 3D Scene Understanding and Generation},
+        author={Zhou, Xin and Liang, Dingkang and Tu, Sifan and Chen, Xiwu and Ding, Yikang and Zhang, Dingyuan and Tan, Feiyang and Zhao, Hengshuang and Bai, Xiang},
+        journal={arXiv preprint arXiv:},
+        year={2025}
+      }
+    </code></pre>
+  </div>
+</section>
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <small><p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p></small>
+          <small><p>
+            We sincerely appreciate Nerfies authors <a href="https://github.com/nerfies/nerfies.github.io"> for their awesome templates.
+          </p></small>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+<div style="background-color: white; margin-right: auto; margin-left: auto; text-align: center; padding-top: 35px; padding-bottom: 35px; position: absolute; left: 0; right: 0;">
+  <a href='https://www.free-counters.org/'>Free-Counters.org</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=131960ded4e5d8f7903dffeb70c6bf6350cb0a45'></script>
+  <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1199344/t/5"></script>
+</div>
+</html>
