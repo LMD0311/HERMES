@@ -16,7 +16,7 @@
 
 (\*) Equal contribution. (†) Project leader.
 
-<!-- [![arXiv](https://img.shields.io/badge/Arxiv-2402.10739-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.10739) -->
+[![arXiv](https://img.shields.io/badge/Arxiv-2501.14729-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2501.14729)
 [![Project](https://img.shields.io/badge/Homepage-project-orange.svg?logo=googlehome)](https://lmd0311.github.io/HERMES/)
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FLMD0311%2FHERMES&count_bg=%23417A15&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 [![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE)
@@ -30,9 +30,9 @@ Check our *awesome* for the latest World Models! [![Awesome World Model](https:/
 
 ## 📣 News
 
-- **[2025.01.22]** Release the demo. Check it out and give it a star 🌟!
+- **[2025.01.24]** Release the demo. Check it out and give it a star 🌟!
 
-- **[2025.01.22]** Release the [paper](xxx).
+- **[2025.01.24]** Release the [paper](https://arxiv.org/abs/2501.14729).
 
  <div  align="center">    
  <img src="./figures/intro.png" width = "888"  align=center />
@@ -100,7 +100,7 @@ If you find this repository useful in your research, please consider giving a st
 @article{zhou2025hermes,
   title={HERMES: A Unified Self-Driving World Model for Simultaneous 3D Scene Understanding and Generation},
   author={Zhou, Xin and Liang, Dingkang and Tu, Sifan and Chen, Xiwu and Ding, Yikang and Zhang, Dingyuan and Tan, Feiyang and Zhao, Hengshuang and Bai, Xiang},
-  journal={arXiv preprint arXiv:},
+  journal={arXiv preprint arXiv:2501.14729},
   year={2025}
 }
 ```
