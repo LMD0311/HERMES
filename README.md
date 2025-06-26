@@ -30,6 +30,8 @@ Check our *awesome* for the latest World Models! [![Awesome World Model](https:/
 
 ## 📣 News
 
+- **[2025.06.26]**  HERMES is accepted to **ICCV 2025**! 🥳
+
 - **[2025.01.24]** Release the demo. Check it out and give it a star 🌟!
 
 - **[2025.01.24]** Release the [paper](https://arxiv.org/abs/2501.14729).
@@ -97,10 +99,10 @@ This project is based on BEVFormer v2 ([paper](https://arxiv.org/abs/2211.10439)
 
 If you find this repository useful in your research, please consider giving a star ⭐ and a citation.
 ```bibtex
-@article{zhou2025hermes,
+@inproceedings{zhou2025hermes,
   title={HERMES: A Unified Self-Driving World Model for Simultaneous 3D Scene Understanding and Generation},
   author={Zhou, Xin and Liang, Dingkang and Tu, Sifan and Chen, Xiwu and Ding, Yikang and Zhang, Dingyuan and Tan, Feiyang and Zhao, Hengshuang and Bai, Xiang},
-  journal={arXiv preprint arXiv:2501.14729},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
   year={2025}
 }
 ```
