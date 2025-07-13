@@ -16,29 +16,20 @@ This guide walks you through preparing datasets and pretrained weights required 
   ln -s /path/to/your/nuscenes data/nuscenes
   ```
   
-- Download the following `.pkl` files and `mask_cam_img.jpg` to `data/nuscenes/`:
-  - [nuscenes_advanced_12Hz_infos_train.pkl](https://huggingface.co/LMD0311/HERMES/blob/main/data/nuscenes_advanced_12Hz_infos_train.pkl)
-  - [nuscenes_masked_only_infos_temporal_train.pkl](https://huggingface.co/LMD0311/HERMES/blob/main/data/nuscenes_masked_only_infos_temporal_train.pkl)
-  - [nuscenes_infos_temporal_train.pkl](https://huggingface.co/LMD0311/HERMES/blob/main/data/nuscenes_infos_temporal_train.pkl)
-  - [nuscenes_infos_temporal_val.pkl](https://huggingface.co/LMD0311/HERMES/blob/main/data/nuscenes_infos_temporal_val.pkl)
-  - [mask_cam_img.jpg](https://huggingface.co/LMD0311/HERMES/blob/main/data/mask_cam_img.jpg)  (required for Stage2-1 data augmentation)
+- Download the `.pkl` files and `mask_cam_img.jpg` to `data/nuscenes/`:
 
-You can also use the following command to do most of the work:
-```bash
-huggingface-cli download LMD0311/HERMES --include="*pkl" --local-dir ./
-mv ./data/*pkl ./data/nuscenes/
-huggingface-cli download LMD0311/HERMES --include="*mask_cam_img.jpg" --local-dir ./
-mv ./data/*jpg ./data/nuscenes/
-```
+  ```bash
+  huggingface-cli download LMD0311/HERMES --include="*pkl" --local-dir ./
+  mv ./data/*pkl ./data/nuscenes/
+  huggingface-cli download LMD0311/HERMES --include="*mask_cam_img.jpg" --local-dir ./
+  mv ./data/*jpg ./data/nuscenes/
+  ```
 
 ---
 
 ## 2. Prepare Text Annotations
 
 - Download and unzip the following files into the `data` directory:
-  - [omnidrive_nusc.zip](https://huggingface.co/LMD0311/HERMES/blob/main/data/omnidrive_nusc.zip)
-  - [NuInteractCaption.zip](https://huggingface.co/LMD0311/HERMES/blob/main/data/data/NuInteractCaption.zip)
-- Example:
   ```bash
   huggingface-cli download LMD0311/HERMES --include="*zip" --local-dir ./
   unzip data/omnidrive_nusc.zip -d data/
@@ -61,17 +52,9 @@ huggingface-cli download OpenGVLab/InternVL2-2B --local-dir InternVL2-2B
 ### b) Download Project Checkpoints
 
 - Create a `ckpt` directory in your project root, and download the following model weights into it:
-  - [open_clip_convnext_base_w-320_laion_aesthetic-s13B-b82k.bin](https://huggingface.co/LMD0311/HERMES/blob/main/ckpt/open_clip_convnext_base_w-320_laion_aesthetic-s13B-b82k.bin)
-  - [hermes_stage1.pth](https://huggingface.co/LMD0311/HERMES/blob/main/ckpt/hermes_stage1.pth)
-  - [hermes_stage2_1.pth](https://huggingface.co/LMD0311/HERMES/blob/main/ckpt/hermes_stage2_1.pth)
-  - [hermes_stage2_2.pth](https://huggingface.co/LMD0311/HERMES/blob/main/ckpt/hermes_stage2_2.pth)
-  - [hermes_final.pth](https://huggingface.co/LMD0311/HERMES/blob/main/ckpt/hermes_final.pth)
-  
-
-You can also use the following command to download most of the checkpoints at once:
-```bash
-huggingface-cli download LMD0311/HERMES --include="ckpt/*" --local-dir ./
-```
+  ```bash
+  huggingface-cli download LMD0311/HERMES --include="ckpt/*" --local-dir ./
+  ```
 ---
 
 ## Directory Structure
