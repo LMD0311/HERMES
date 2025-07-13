@@ -54,7 +54,7 @@ Driving World Models (DWMs) have become essential for autonomous driving by enab
 
 We provide detailed guides to help you quickly set up, train, and evaluate HERMES:
 
-- **[Environment Setup](docs/environment.md):** Step-by-step instructions for installing dependencies and preparing your environment.
+- **[Environment Setup](docs/Environment.md):** Step-by-step instructions for installing dependencies and preparing your environment.
 - **[Data & Weights Preparation](docs/Data.md):** How to prepare the datasets and download pretrained weights.
 - **[Usage Guide](docs/Usage.md):** Instructions for training, inference, and evaluation.
 
