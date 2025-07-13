@@ -10,28 +10,39 @@ This guide walks you through preparing datasets and pretrained weights required 
   ```bash
   mkdir -p data
   ```
+  
 - Place or symlink your nuScenes dataset to the `data` directory:
   ```bash
   ln -s /path/to/your/nuscenes data/nuscenes
   ```
+  
 - Download the following `.pkl` files and `mask_cam_img.jpg` to `data/nuscenes/`:
-  - [nuscenes_advanced_12Hz_infos_train.pkl](https://github.com/LMD0311/HERMES/releases/download/data/nuscenes_advanced_12Hz_infos_train.pkl)
-  - [nuscenes_masked_only_infos_temporal_train.pkl](https://huggingface.co/LMD0311/HERMES/resolve/main/data/nuscenes_masked_only_infos_temporal_train.pkl)
-  - [nuscenes_infos_temporal_train.pkl](https://github.com/LMD0311/HERMES/releases/download/data/nuscenes_infos_temporal_train.pkl)
-  - [nuscenes_infos_temporal_val.pkl](https://github.com/LMD0311/HERMES/releases/download/data/nuscenes_infos_temporal_val.pkl)
-  - [mask_cam_img.jpg](https://github.com/LMD0311/HERMES/releases/download/data/mask_cam_img.jpg)  (required for Stage2-1 data augmentation)
-- We also provide a Baidu Netdisk download [link](https://pan.baidu.com/s/1BdFAI3Cj8mWI3bdf9IT8QA?pwd=w63t) for your convenience.
+  - [nuscenes_advanced_12Hz_infos_train.pkl](https://huggingface.co/LMD0311/HERMES/blob/main/data/nuscenes_advanced_12Hz_infos_train.pkl)
+  - [nuscenes_masked_only_infos_temporal_train.pkl](https://huggingface.co/LMD0311/HERMES/blob/main/data/nuscenes_masked_only_infos_temporal_train.pkl)
+  - [nuscenes_infos_temporal_train.pkl](https://huggingface.co/LMD0311/HERMES/blob/main/data/nuscenes_infos_temporal_train.pkl)
+  - [nuscenes_infos_temporal_val.pkl](https://huggingface.co/LMD0311/HERMES/blob/main/data/nuscenes_infos_temporal_val.pkl)
+  - [mask_cam_img.jpg](https://huggingface.co/LMD0311/HERMES/blob/main/data/mask_cam_img.jpg)  (required for Stage2-1 data augmentation)
+
+You can also use the following command to do most of the work:
+```bash
+huggingface-cli download LMD0311/HERMES --include="*pkl" --local-dir ./
+mv ./data/*pkl ./data/nuscenes/
+huggingface-cli download LMD0311/HERMES --include="*mask_cam_img.jpg" --local-dir ./
+mv ./data/*jpg ./data/nuscenes/
+```
+
 ---
 
 ## 2. Prepare Text Annotations
 
 - Download and unzip the following files into the `data` directory:
-  - [omnidrive_nusc.zip](https://github.com/LMD0311/HERMES/releases/download/data/omnidrive_nusc.zip)
-  - [NuInteractCaption.zip](https://github.com/LMD0311/HERMES/releases/download/data/NuInteractCaption.zip)
+  - [omnidrive_nusc.zip](https://huggingface.co/LMD0311/HERMES/blob/main/data/omnidrive_nusc.zip)
+  - [NuInteractCaption.zip](https://huggingface.co/LMD0311/HERMES/blob/main/data/data/NuInteractCaption.zip)
 - Example:
   ```bash
-  unzip omnidrive_nusc.zip -d data/
-  unzip NuInteractCaption.zip -d data/
+  huggingface-cli download LMD0311/HERMES --include="*zip" --local-dir ./
+  unzip data/omnidrive_nusc.zip -d data/
+  unzip data/NuInteractCaption.zip -d data/
   ```
 
 ---
@@ -44,7 +55,7 @@ This guide walks you through preparing datasets and pretrained weights required 
 cd projects/mmdet3d_plugin/models/internvl_chat
 mkdir pretrained
 cd pretrained
-huggingface-cli download --resume-download --local-dir-use-symlinks False OpenGVLab/InternVL2-2B --local-dir InternVL2-2B
+huggingface-cli download OpenGVLab/InternVL2-2B --local-dir InternVL2-2B
 ```
 
 ### b) Download Project Checkpoints
@@ -55,7 +66,12 @@ huggingface-cli download --resume-download --local-dir-use-symlinks False OpenGV
   - [hermes_stage2_1.pth](https://huggingface.co/LMD0311/HERMES/blob/main/ckpt/hermes_stage2_1.pth)
   - [hermes_stage2_2.pth](https://huggingface.co/LMD0311/HERMES/blob/main/ckpt/hermes_stage2_2.pth)
   - [hermes_final.pth](https://huggingface.co/LMD0311/HERMES/blob/main/ckpt/hermes_final.pth)
-- We also provide a Baidu Netdisk download [link](https://pan.baidu.com/s/1BdFAI3Cj8mWI3bdf9IT8QA?pwd=w63t) for your convenience.
+  
+
+You can also use the following command to download most of the checkpoints at once:
+```bash
+huggingface-cli download LMD0311/HERMES --include="ckpt/*" --local-dir ./
+```
 ---
 
 ## Directory Structure
