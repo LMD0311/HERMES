@@ -1,0 +1,11 @@
+lyft_dataset_sdk
+networkx
+# we may unlock the verion of numba in the future
+numba
+numpy
+nuscenes-devkit
+plyfile
+scikit-image
+# by default we also use tensorboard to log results
+tensorboard
+trimesh>=2.35.39,<2.35.40

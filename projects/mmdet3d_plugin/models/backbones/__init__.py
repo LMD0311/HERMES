@@ -1,0 +1,1 @@
+from .convnext import OpenCLIPConvnext

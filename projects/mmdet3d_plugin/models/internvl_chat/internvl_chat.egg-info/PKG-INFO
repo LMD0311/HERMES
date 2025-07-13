@@ -1,0 +1,80 @@
+Metadata-Version: 2.1
+Name: internvl_chat
+Version: 2.0.0
+Summary: Scaling up Vision Foundation Models and Aligning for Generic Visual-Linguistic Tasks.
+Project-URL: Homepage, https://github.com/OpenGVLab/InternVL
+Project-URL: Bug Tracker, https://github.com/OpenGVLab/InternVL/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: transformers==4.37.2
+Requires-Dist: tokenizers==0.15.1
+Requires-Dist: sentencepiece==0.1.99
+Requires-Dist: shortuuid
+Requires-Dist: accelerate
+Requires-Dist: peft>=0.4.0
+Requires-Dist: bitsandbytes==0.41.0
+Requires-Dist: pydantic
+Requires-Dist: markdown2[all]
+Requires-Dist: numpy
+Requires-Dist: scikit-learn>=1.2.2
+Requires-Dist: gradio==3.35.2
+Requires-Dist: gradio_client==0.2.9
+Requires-Dist: requests
+Requires-Dist: httpx==0.24.0
+Requires-Dist: uvicorn
+Requires-Dist: fastapi
+Requires-Dist: deepspeed==0.13.5
+Requires-Dist: einops
+Requires-Dist: einops-exts
+Requires-Dist: timm==0.9.12
+
+# InternVL-Chat
+
+This folder contains the implementation of the InternVL-Chat.
+
+## 🛠️ Installation
+
+See [INSTALLATION.md](../INSTALLATION.md)
+
+In addition, using this codebase requires executing the following steps:
+
+- Install other requirements:
+
+  ```bash
+  pip install --upgrade pip  # enable PEP 660 support
+  pip install -e .
+  ```
+
+## 📖 Documents
+
+- InternVL 2.0
+
+  - Introduction [\[link\]](https://internvl.readthedocs.io/en/latest/internvl2.0/introduction.html)
+  - Quick Start [\[link\]](https://internvl.readthedocs.io/en/latest/internvl2.0/quick_start.html)
+  - Finetune [\[link\]](https://internvl.readthedocs.io/en/latest/internvl2.0/finetune.html)
+  - Evaluation [\[link\]](https://internvl.readthedocs.io/en/latest/internvl2.0/evaluation.html)
+  - Deployment [\[link\]](https://internvl.readthedocs.io/en/latest/internvl2.0/deployment.html)
+
+- InternVL 1.5
+
+  - Introduction [\[link\]](https://internvl.readthedocs.io/en/latest/internvl1.5/introduction.html)
+  - Quick Start [\[link\]](https://internvl.readthedocs.io/en/latest/internvl1.5/quick_start.html)
+  - Finetune [\[link\]](https://internvl.readthedocs.io/en/latest/internvl1.5/finetune.html)
+  - Evaluation [\[link\]](https://internvl.readthedocs.io/en/latest/internvl1.5/evaluation.html)
+  - Deployment [\[link\]](https://internvl.readthedocs.io/en/latest/internvl1.5/deployment.html)
+
+- InternVL 1.2
+
+  - Introduction [\[link\]](https://internvl.readthedocs.io/en/latest/internvl1.2/introduction.html)
+  - Quick Start [\[link\]](https://internvl.readthedocs.io/en/latest/internvl1.2/quick_start.html)
+  - Reproduce [\[link\]](https://internvl.readthedocs.io/en/latest/internvl1.2/reproduce.html)
+  - Finetune [\[link\]](https://internvl.readthedocs.io/en/latest/internvl1.2/finetune.html)
+  - Evaluation [\[link\]](https://internvl.readthedocs.io/en/latest/internvl1.2/evaluation.html)
+
+- InternVL 1.1
+
+  - Introduction [\[link\]](https://internvl.readthedocs.io/en/latest/internvl1.1/introduction.html)
+  - Quick Start [\[link\]](https://internvl.readthedocs.io/en/latest/internvl1.1/quick_start.html)
+  - Evaluation [\[link\]](https://internvl.readthedocs.io/en/latest/internvl1.1/evaluation.html)

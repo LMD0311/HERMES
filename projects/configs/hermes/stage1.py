@@ -1,0 +1,295 @@
+_base_ = [
+    "../../../configs/_base_/datasets/nus-3d.py",
+    "../../../configs/_base_/default_runtime.py",
+]
+
+plugin = True
+plugin_dir = "projects/mmdet3d_plugin/"
+
+# If point cloud range is changed, the models should also change their point
+# cloud range accordingly
+point_cloud_range = [-51.2, -51.2, -5.0, 51.2, 51.2, 3.0]
+frustum_range = [0, 0, 1.0, 1600, 928, 60.0]
+frustum_size = [32.0, 32.0, 0.5]
+cam_sweep_num = 1
+lidar_sweep_num = 10
+fp16_enabled = True
+OPENAI_CLIP_MEAN = [0.48145466, 0.4578275, 0.40821073]
+OPENAI_CLIP_STD = [0.26862954, 0.26130258, 0.27577711]
+img_norm_cfg = dict(mean=OPENAI_CLIP_MEAN, std=OPENAI_CLIP_STD, to_rgb=True)
+_dim_ = 256
+_pos_dim_ = 128
+_ffn_dim_ = 512
+_num_levels_ = 4
+_num_mono_levels_ = 5
+group_detr = 11
+bev_h_ = 200
+bev_w_ = 200
+voxel_z_ = 32
+unified_voxel_size = [102.4 / bev_h_, 102.4 / bev_w_, 8 / voxel_z_]
+frames = (0,)
+voxel_size = [102.4 / bev_h_, 102.4 / bev_w_, 8]
+point_nsample = 4096
+unified_voxel_shape = [
+    int((point_cloud_range[3] - point_cloud_range[0]) / unified_voxel_size[0]),
+    int((point_cloud_range[4] - point_cloud_range[1]) / unified_voxel_size[1]),
+    int((point_cloud_range[5] - point_cloud_range[2]) / unified_voxel_size[2]),
+]
+
+# For nuScenes we usually do 10-class detection
+class_names = [
+    "car",
+    "truck",
+    "construction_vehicle",
+    "bus",
+    "trailer",
+    "barrier",
+    "motorcycle",
+    "bicycle",
+    "pedestrian",
+    "traffic_cone",
+]
+
+input_modality = dict(
+    use_lidar=True,
+    use_camera=True,
+    use_radar=False,
+    use_map=False,
+    use_external=False,
+    cam_sweep_num=cam_sweep_num,
+)
+
+model = dict(
+    type="UVTRBEVFormer",
+    num_levels=_num_levels_,
+    img_backbone=dict(
+        type='OpenCLIPConvnext',
+        model_args=dict(depths=[3, 3, 27, 3],
+                        dims=[128, 256, 512, 1024],
+                        drop_path_rate=0.1,
+                        indices=[2, 3, 4],
+                        intermediates_only=True,
+                        grad_checkpointing=False,
+                        ),
+        pretrain_path='./ckpt/open_clip_convnext_base_w-320_laion_aesthetic-s13B-b82k.bin',
+    ),
+    img_neck=dict(
+        type='CPFPN',  ###remove unused parameters
+        in_channels=[256, 512, 1024],
+        out_channels=256,
+        num_outs=4),
+    pts_bbox_head=dict(
+        type="HERMESRenderHead",
+        fp16_enabled=fp16_enabled,
+        in_channels=256,
+        unified_voxel_size=unified_voxel_size,
+        unified_voxel_shape=unified_voxel_shape,
+        pc_range=point_cloud_range,
+        #################### Need to be modified ####################
+        group_detr=group_detr,
+        bev_h=bev_h_,
+        bev_w=bev_w_,
+        num_query=900,
+        num_classes=10,
+        sync_cls_avg_factor=True,
+        with_box_refine=True,
+        as_two_stage=False,
+        use_downsample=True,
+        transformer=dict(
+            type='PerceptionTransformerV2',
+            embed_dims=_dim_,
+            frames=frames,
+            encoder=dict(
+                type='BEVFormerEncoder',
+                num_layers=6,
+                pc_range=point_cloud_range,
+                num_points_in_pillar=4,
+                return_intermediate=False,
+                transformerlayers=dict(
+                    type='BEVFormerLayer',
+                    attn_cfgs=[
+                        dict(
+                            type='TemporalSelfAttention',
+                            embed_dims=_dim_,
+                            num_levels=1),
+                        dict(
+                            type='SpatialCrossAttention',
+                            pc_range=point_cloud_range,
+                            deformable_attention=dict(
+                                type='MSDeformableAttention3D',
+                                embed_dims=_dim_,
+                                num_points=8,
+                                num_levels=_num_levels_),
+                            embed_dims=_dim_)
+                    ],
+                    feedforward_channels=_ffn_dim_,
+                    ffn_dropout=0.1,
+                    operation_order=('self_attn', 'norm', 'cross_attn', 'norm',
+                                     'ffn', 'norm')))
+        ),
+        bbox_coder=dict(
+            type='NMSFreeCoder',
+            post_center_range=[-61.2, -61.2, -10.0, 61.2, 61.2, 10.0],
+            pc_range=point_cloud_range,
+            max_num=300,
+            voxel_size=voxel_size,
+            num_classes=10),
+        positional_encoding=dict(
+            type='LearnedPositionalEncoding',
+            num_feats=_pos_dim_,
+            row_num_embed=bev_h_,
+            col_num_embed=bev_w_),
+        loss_cls=dict(
+            type='FocalLoss',
+            use_sigmoid=True,
+            gamma=2.0,
+            alpha=0.25,
+            loss_weight=2.0),
+        loss_bbox=dict(type='SmoothL1Loss', loss_weight=0.75, beta=1.0),
+        loss_iou=dict(type='GIoULoss', loss_weight=0.0),
+        ############## Need to be modified ############
+        view_cfg=None,
+        render_conv_cfg=dict(out_channels=32, kernel_size=3, padding=1),
+        ray_sampler_cfg=dict(
+            close_radius=.0,
+            only_img_mask=False,
+            only_point_mask=False,
+            replace_sample=False,
+            point_nsample=1024,
+            point_ratio=0.5,
+            pixel_interval=4,
+            sky_region=0.4,
+            merged_nsample=1024,
+            ego_mask=(-0.8, -1.5, 0.8, 2.5),
+        ),
+        render_ssl_cfg=dict(
+            type="NeuSModel",
+            norm_scene=True,
+            field_cfg=dict(
+                type="SDFField",
+                sdf_decoder_cfg=dict(
+                    in_dim=32, out_dim=16 + 1, hidden_size=16, n_blocks=5
+                ),
+                rgb_decoder_cfg=dict(
+                    in_dim=32 + 16 + 3 + 3, out_dim=32 + 16, hidden_size=16, n_blocks=3
+                ),
+                interpolate_cfg=dict(type="SmoothSampler", padding_mode="zeros"),
+                beta_init=0.3,
+            ),
+            collider_cfg=dict(type="AABBBoxCollider", near_plane=1.0),
+            sampler_cfg=dict(
+                type="NeuSSampler",
+                initial_sampler="UniformSampler",
+                num_samples=96,
+                num_samples_importance=42,
+                num_upsample_steps=1,
+                train_stratified=True,
+                single_jitter=True,
+            ),
+            loss_cfg=dict(
+                sensor_depth_truncation=0.1,
+                sparse_points_sdf_supervised=False,
+                weights=dict(
+                    depth_loss=10.0,
+                ),
+            ),
+        ),
+    ),
+)
+
+dataset_type = "NuScenesSweepDataset"
+data_root = "data/nuscenes/"
+
+file_client_args = dict(backend='disk')
+
+train_pipeline = [
+    dict(
+        type="LoadPointsFromFile",
+        coord_type="LIDAR",
+        load_dim=5,
+        use_dim=5,
+        file_client_args=file_client_args,
+    ),
+    dict(
+        type="LoadMultiViewMultiSweepImageFromFiles",
+        sweep_num=cam_sweep_num,
+        to_float32=True,
+        file_client_args=file_client_args,
+    ),
+    dict(type="PointsRangeFilter", point_cloud_range=point_cloud_range),
+    dict(type="PointShuffle"),
+    dict(type="NormalizeMultiviewImage", **img_norm_cfg),
+    dict(type="PadMultiViewImage", size_divisor=32),
+    dict(type="DefaultFormatBundle3D", class_names=class_names),
+    dict(type="CollectUnified3D", keys=["points", "img"]),
+]
+test_pipeline = [
+    dict(
+        type="LoadPointsFromFile",
+        coord_type="LIDAR",
+        load_dim=5,
+        use_dim=5,
+        file_client_args=file_client_args,
+    ),
+    dict(
+        type="LoadMultiViewMultiSweepImageFromFiles",
+        sweep_num=cam_sweep_num,
+        to_float32=True,
+        file_client_args=file_client_args,
+    ),
+    dict(type="PointsRangeFilter", point_cloud_range=point_cloud_range),
+    dict(type="NormalizeMultiviewImage", **img_norm_cfg),
+    dict(type="PadMultiViewImage", size_divisor=32),
+    dict(type="DefaultFormatBundle3D", class_names=class_names),
+    dict(type="CollectUnified3D", keys=["points", "img"]),
+]
+
+data = dict(
+    samples_per_gpu=1,
+    workers_per_gpu=4,
+    persistent_workers=True,
+    train=dict(
+        type=dataset_type,
+        data_root=data_root,
+        ann_file=data_root + "nuscenes_advanced_12Hz_infos_train.pkl",
+        pipeline=train_pipeline,
+        classes=class_names,
+        modality=input_modality,
+        test_mode=False,
+        use_valid_flag=True,
+        filter_empty_gt=False,
+        box_type_3d="LiDAR",
+        load_interval=1,
+    )
+)
+
+optimizer = dict(
+    type='AdamW',
+    lr=2e-4,
+    paramwise_cfg=dict(
+        custom_keys=dict(
+            img_backbone=dict(lr_mult=0.1),
+        )
+    ),
+    weight_decay=0.01)
+
+optimizer_config = dict(type='Fp16OptimizerHook', loss_scale='dynamic', grad_clip=dict(max_norm=35, norm_type=2))
+# learning policy
+lr_config = dict(
+    policy="CosineAnnealing",
+    warmup="linear",
+    warmup_iters=500,
+    warmup_ratio=1.0 / 3,
+    min_lr_ratio=1e-3,
+)
+total_epochs = 6
+evaluation = dict(interval=4, pipeline=test_pipeline)
+checkpoint_config = dict(max_keep_ckpts=1, interval=1, )
+log_config = dict(
+    interval=50, hooks=[dict(type="TextLoggerHook"), dict(type="TensorboardLoggerHook")]
+)
+
+find_unused_parameters = True
+runner = dict(type="EpochBasedRunner", max_epochs=total_epochs)
+
+resume_from = None

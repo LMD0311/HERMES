@@ -16,9 +16,9 @@
 
 (\*) Equal contribution. (†) Project leader.
 
-[![arXiv](https://img.shields.io/badge/Arxiv-2501.14729-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2501.14729)
-[![Project](https://img.shields.io/badge/Homepage-project-orange.svg?logo=googlehome)](https://lmd0311.github.io/HERMES/)
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FLMD0311%2FHERMES&count_bg=%23417A15&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+[![arXiv](https://img.shields.io/badge/arXiv-2501.14729-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2501.14729)
+[![Huggingface](https://img.shields.io/badge/HERMES-Model-orange?logo=Huggingface)](https://huggingface.co/LMD0311/HERMES)
+[![Project](https://img.shields.io/badge/HERMES-Page-orange.svg?logo=googlehome)](https://lmd0311.github.io/HERMES/)
 [![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE)
 
 Check our *awesome* for the latest World Models! [![Awesome World Model](https://img.shields.io/badge/GitHub-awesome_world_model-blue?logo=github)](https://github.com/LMD0311/Awesome-World-Model)
@@ -29,33 +29,38 @@ Check our *awesome* for the latest World Models! [![Awesome World Model](https:/
 </div>
 
 ## 📣 News
-
-- **[2025.06.26]**  HERMES is accepted to **ICCV 2025**! 🥳
-
+- **[2025.07.14]** Code, pretrained weights, and used processed data are now open-sourced. 🔥
+- **[2025.06.26]** HERMES is accepted to **ICCV 2025**! 🥳
 - **[2025.01.24]** Release the demo. Check it out and give it a star 🌟!
-
-- **[2025.01.24]** Release the [paper](https://arxiv.org/abs/2501.14729).
-
+- **[2025.01.24]** Release the [paper](https://arxiv.org/abs/2501.14729). 🔥
  <div  align="center">    
  <img src="./figures/intro.png" width = "888"  align=center />
 </div>
 
+---
 ## Abstract
 
-Driving World Models (DWMs) have become essential for autonomous driving by enabling future scene prediction. However, existing DWMs are limited to scene generation and fail to incorporate scene understanding, which involves interpreting and reasoning about the driving environment. In this paper, we present a unified Driving World Model named **HERMES**<sup>1</sup>. Through a unified framework, we seamlessly integrate scene understanding and future scene evolution (generation) in driving scenarios. Specifically, **HERMES** leverages a Bird‘s-Eye View (BEV) representation to consolidate multi-view spatial information while preserving geometric relationships and interactions. Additionally, we introduce world queries, which incorporate world knowledge into BEV features via causal attention in the Large Language Model (LLM), enabling contextual enrichment for both understanding and generation tasks. We conduct comprehensive studies on nuScenes and OmniDrive-nuScenes datasets to validate the effectiveness of our method. **HERMES** achieves state-of-the-art performance, reducing generation error by 32.4% and improving understanding metrics such as CIDEr by 8.0%.
+Driving World Models (DWMs) have become essential for autonomous driving by enabling future scene prediction. However, existing DWMs are limited to scene generation and fail to incorporate scene understanding, which involves interpreting and reasoning about the driving environment. In this paper, we present a unified Driving World Model named **HERMES**. Through a unified framework, we seamlessly integrate scene understanding and future scene evolution (generation) in driving scenarios. Specifically, **HERMES** leverages a Bird‘s-Eye View (BEV) representation to consolidate multi-view spatial information while preserving geometric relationships and interactions. Additionally, we introduce world queries, which incorporate world knowledge into BEV features via causal attention in the Large Language Model (LLM), enabling contextual enrichment for both understanding and generation tasks. We conduct comprehensive studies on nuScenes and OmniDrive-nuScenes datasets to validate the effectiveness of our method. **HERMES** achieves state-of-the-art performance, reducing generation error by 32.4% and improving understanding metrics such as CIDEr by 8.0%.
 
-
-
-> 1. In Greek mythology, [Hermes](https://en.wikipedia.org/wiki/Hermes) serves as the messenger of the gods. Similarly, this paper proposes a simple yet effective framework that unifies understanding and generation as a driving world model, facilitating knowledge transfer across tasks. The logo inspired by Hermes’ shoes.
-
+---
 ## Overview
 
 <div  align="center">    
  <img src="./figures/pipeline.jpg" width = "888"  align=center />
 </div>
 
+---
+## Getting Started
 
+We provide detailed guides to help you quickly set up, train, and evaluate HERMES:
 
+- **[Environment Setup](docs/environment.md):** Step-by-step instructions for installing dependencies and preparing your environment.
+- **[Data & Weights Preparation](docs/Data.md):** How to prepare the datasets and download pretrained weights.
+- **[Usage Guide](docs/Usage.md):** Instructions for training, inference, and evaluation.
+
+Please follow these guides for a smooth experience.
+
+---
 ## Demo
 
 <div  align="center">    
@@ -73,27 +78,25 @@ Driving World Models (DWMs) have become essential for autonomous driving by enab
  <center> Example 3 </center> <br>
 </div>
 
-
+---
 ## Main Results
 
 <div  align="center">    
  <img src="./figures/main_results.png" width = "888"  align=center />
 </div>
 
-
-## Getting Started
-
-Coming soon. 
-
+---
 ## To Do
 
 - [x] Release demo.
-- [ ] Release checkpoints.
-- [ ] Release training code.
+- [x] Release checkpoints.
+- [x] Release training code.
+- [x] Release processed datasets.
+- [ ] Release DeepSpeed support.
 
 ## Acknowledgement
 
-This project is based on BEVFormer v2 ([paper](https://arxiv.org/abs/2211.10439), [code](https://github.com/fundamentalvision/BEVFormer)), InternVL ([paper](https://arxiv.org/abs/2404.16821), [code](https://github.com/OpenGVLab/InternVL)), UniPAD ([paper](https://arxiv.org/abs/2310.08370), [code](https://github.com/Nightmare-n/UniPAD)), OminiDrive ([paper](https://arxiv.org/abs/2405.01533), [code](https://github.com/NVlabs/OmniDrive)). Thanks for their wonderful works.
+This project is based on BEVFormer v2 ([paper](https://arxiv.org/abs/2211.10439), [code](https://github.com/fundamentalvision/BEVFormer)), InternVL ([paper](https://arxiv.org/abs/2404.16821), [code](https://github.com/OpenGVLab/InternVL)), UniPAD ([paper](https://arxiv.org/abs/2310.08370), [code](https://github.com/Nightmare-n/UniPAD)), OminiDrive ([paper](https://arxiv.org/abs/2405.01533), [code](https://github.com/NVlabs/OmniDrive)), DriveMonkey ([paper](https://arxiv.org/abs/2505.08725), [code](https://github.com/zc-zhao/DriveMonkey)). Thanks for their wonderful works.
 
 ## Citation
 

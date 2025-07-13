@@ -1,0 +1,2 @@
+bash: torchrun: command not found
+bash: torchrun: command not found
