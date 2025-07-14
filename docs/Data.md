@@ -51,10 +51,10 @@ huggingface-cli download OpenGVLab/InternVL2-2B --local-dir InternVL2-2B
 
 ### b) Download Project Checkpoints
 
-- Create a `ckpt` directory in your project root, and download the following model weights into it:
-  ```bash
-  huggingface-cli download LMD0311/HERMES --include="ckpt/*" --local-dir ./
-  ```
+```bash
+huggingface-cli download LMD0311/HERMES --include="ckpt/*" --local-dir ./
+```
+
 ---
 
 ## Directory Structure
