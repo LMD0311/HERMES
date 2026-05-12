@@ -18,7 +18,9 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2501.14729-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2501.14729)
 [![Huggingface](https://img.shields.io/badge/HERMES-Model-orange?logo=Huggingface)](https://huggingface.co/LMD0311/HERMES)
-[![Project](https://img.shields.io/badge/HERMES-Page-orange.svg?logo=googlehome)](https://lmd0311.github.io/HERMES/)
+[![Project](https://img.shields.io/badge/HERMES-Project_Page-2c7a3f?logo=githubpages)](https://lmd0311.github.io/HERMES/)
+[![arXiv](https://img.shields.io/badge/HERMES++-arXiv-b31b1b?logo=arxiv)](https://arxiv.org/abs/2604.28196)
+[![Project](https://img.shields.io/badge/HERMES++-Project_Page-2c7a3f?logo=githubpages)](https://h-embodvis.github.io/HERMESV2/)
 [![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE)
 
 Check our *awesome* for the latest World Models! [![Awesome World Model](https://img.shields.io/badge/GitHub-awesome_world_model-blue?logo=github)](https://github.com/LMD0311/Awesome-World-Model)
@@ -29,6 +31,7 @@ Check our *awesome* for the latest World Models! [![Awesome World Model](https:/
 </div>
 
 ## 📣 News
+- **[2025.04.30]** Release extended HERMES++ [paper](https://arxiv.org/abs/2604.28196) and code.
 - **[2025.07.14]** Code, pretrained weights, and used processed data are now open-sourced. 🔥
 - **[2025.06.26]** HERMES is accepted to **ICCV 2025**! 🥳
 - **[2025.01.24]** Release the demo. Check it out and give it a star 🌟!
@@ -107,5 +110,12 @@ If you find this repository useful in your research, please consider giving a st
   author={Zhou, Xin and Liang, Dingkang and Tu, Sifan and Chen, Xiwu and Ding, Yikang and Zhang, Dingyuan and Tan, Feiyang and Zhao, Hengshuang and Bai, Xiang},
   booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
   year={2025}
+}
+
+@article{zhou2026hermespp,
+  title={HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation},
+  author={Zhou, Xin and Liang, Dingkang and Chen, Xiwu and Tan, Feiyang and Zhang, Dingyuan and Zhao, Hengshuang and Bai, Xiang},
+  journal={arXiv preprint arXiv:2604.28196},
+  year={2026}
 }
 ```
