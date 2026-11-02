@@ -20,6 +20,7 @@
 [![Huggingface](https://img.shields.io/badge/HERMES-Model-orange?logo=Huggingface)](https://huggingface.co/LMD0311/HERMES)
 [![Project](https://img.shields.io/badge/HERMES-Project_Page-2c7a3f?logo=githubpages)](https://lmd0311.github.io/HERMES/)
 [![arXiv](https://img.shields.io/badge/HERMES++-arXiv-b31b1b?logo=arxiv)](https://arxiv.org/abs/2604.28196)
+[![TPAMI](https://img.shields.io/badge/IEEE%20TPAMI-Accepted-1f6feb?logo=ieee)](https://doi.org/10.1109/TPAMI.2026.3735606)
 [![Project](https://img.shields.io/badge/HERMES++-Project_Page-2c7a3f?logo=githubpages)](https://h-embodvis.github.io/HERMESV2/)
 [![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE)
 
@@ -31,6 +32,7 @@ Check our *awesome* for the latest World Models! [![Awesome World Model](https:/
 </div>
 
 ## 📣 News
+- **[2026.09.10]** HERMES++ is accepted to **IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)**. 🎉
 - **[2025.04.30]** Release extended HERMES++ [paper](https://arxiv.org/abs/2604.28196) and code.
 - **[2025.07.14]** Code, pretrained weights, and used processed data are now open-sourced. 🔥
 - **[2025.06.26]** HERMES is accepted to **ICCV 2025**! 🥳
@@ -39,6 +41,11 @@ Check our *awesome* for the latest World Models! [![Awesome World Model](https:/
  <div  align="center">    
  <img src="./figures/intro.png" width = "888"  align=center />
 </div>
+
+---
+## Extended Version: HERMES++
+
+HERMES++ extends the original unified world model with LLM-enhanced world queries, a Current-to-Future Link, textual conditioning, and Joint Geometric Optimization. The extended version is accepted to **IEEE TPAMI**. See the dedicated [HERMES++ repository](https://github.com/H-EmbodVis/HERMESV2), [project page](https://h-embodvis.github.io/HERMESV2/), and [published version](https://doi.org/10.1109/TPAMI.2026.3735606).
 
 ---
 ## Abstract
@@ -115,7 +122,8 @@ If you find this repository useful in your research, please consider giving a st
 @article{zhou2026hermespp,
   title={HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation},
   author={Zhou, Xin and Liang, Dingkang and Chen, Xiwu and Tan, Feiyang and Zhang, Dingyuan and Zhao, Hengshuang and Bai, Xiang},
-  journal={arXiv preprint arXiv:2604.28196},
-  year={2026}
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2026},
+  doi={10.1109/TPAMI.2026.3735606}
 }
 ```
